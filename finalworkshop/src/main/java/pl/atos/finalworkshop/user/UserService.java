@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 @Service
 public class UserService implements UserServiceInteface {
@@ -31,5 +32,10 @@ public class UserService implements UserServiceInteface {
         Role userRole = roleRepository.findByName("ROLE_USER");
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
         userRepository.save(user);
+    }
+
+    @Override
+    public List<User> findAllByOrderByProductsDesc() {
+        return userRepository.findAll();
     }
 }

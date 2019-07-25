@@ -34,7 +34,7 @@
                                             <a href="category.html">Statystyki</a>
                                             <ul class="dropdown arrow-top">
                                                 <li><a href="/categories">Kategorie</a></li>
-                                                <li><a href="#">Użytkownicy</a></li>
+                                                <li><a href="/users">Użytkownicy</a></li>
                                                 <li><a href="#">Sklepy</a></li>
                                       <%--          <li class="has-children">
                                                     <a href="#">More Links</a>

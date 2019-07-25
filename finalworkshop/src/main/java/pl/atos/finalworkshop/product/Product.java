@@ -1,11 +1,13 @@
 package pl.atos.finalworkshop.product;
 
-import org.hibernate.validator.constraints.NotEmpty;
 import pl.atos.finalworkshop.category.Category;
 import pl.atos.finalworkshop.shop.Shop;
+import pl.atos.finalworkshop.user.User;
 import pl.atos.finalworkshop.validators.FutureDate;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -36,6 +38,9 @@ public class Product {
 
     @FutureDate
     private LocalDate expire;
+
+    @ManyToOne
+    private User user;
 
     public Long getId() {
         return id;
@@ -107,5 +112,13 @@ public class Product {
 
     public void setExpire(LocalDate expire) {
         this.expire = expire;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

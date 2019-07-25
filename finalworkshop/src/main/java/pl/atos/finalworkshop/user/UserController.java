@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class UserController {
 
@@ -31,5 +33,12 @@ public class UserController {
     @GetMapping("login")
     public String login() {
         return "login";
+    }
+
+    @GetMapping("users")
+    public String users(Model model) {
+        List<User> users = userService.findAllByOrderByProductsDesc();
+        model.addAttribute("users", users);
+        return "users-list";
     }
 }

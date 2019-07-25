@@ -69,7 +69,7 @@
                         <div class="col-md-12"><h3>Nazwa produktu</h3></div>
                         <div class="col-md-12 mb-3 mb-md-0">
                             <form:input type="text" path="name" class="form-control" placeholder="np. kawa, herbata"/>
-                            <form:errors path="expire" />
+                            <form:errors path="name" />
                         </div>
                     </div>
 
