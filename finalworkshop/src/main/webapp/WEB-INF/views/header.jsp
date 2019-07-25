@@ -35,7 +35,7 @@
                                             <ul class="dropdown arrow-top">
                                                 <li><a href="/categories">Kategorie</a></li>
                                                 <li><a href="/users">Użytkownicy</a></li>
-                                                <li><a href="#">Sklepy</a></li>
+                                                <li><a href="/shops">Sklepy</a></li>
                                       <%--          <li class="has-children">
                                                     <a href="#">More Links</a>
                                                     <ul class="dropdown">

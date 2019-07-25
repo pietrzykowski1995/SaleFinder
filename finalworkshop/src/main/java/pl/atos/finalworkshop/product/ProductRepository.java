@@ -22,5 +22,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
                 " inner join city on city.id=shop_city.cities_id" +
                 " where city.name = :cityName and products.name = :productName")
         List<Product> findByCityAndName(@Param("cityName") String cityName, @Param("productName") String productName);
+
+    List<Product> findAllByShopId(Long id);
 }
 

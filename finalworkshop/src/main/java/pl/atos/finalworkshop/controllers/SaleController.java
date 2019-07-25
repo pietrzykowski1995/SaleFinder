@@ -74,6 +74,13 @@ public class SaleController {
         return "product-list";
     }
 
+    @GetMapping("/shop/{shopId}")
+    public String goToShopList(@PathVariable("shopId") Long id, Model model) {
+        List<Product> products = productService.findByShopId(id);
+        model.addAttribute("products", products);
+        return "product-list";
+    }
+
     @GetMapping("mega-sales")
     public String goToMegaSales(Model model) {
 

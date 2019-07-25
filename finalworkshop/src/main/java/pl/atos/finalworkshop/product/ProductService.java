@@ -42,4 +42,9 @@ public class ProductService implements ProductServiceInterface {
     public List<Product> findByCityAndName(String cityName, String productName) {
         return productRepository.findByCityAndName(cityName, productName);
     }
+
+    @Override
+    public List<Product> findByShopId(Long id) {
+        return productRepository.findAllByShopId(id);
+    }
 }

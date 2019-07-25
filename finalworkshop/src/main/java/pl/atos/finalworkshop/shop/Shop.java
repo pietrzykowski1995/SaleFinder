@@ -1,5 +1,6 @@
 package pl.atos.finalworkshop.shop;
 
+import org.hibernate.annotations.Formula;
 import pl.atos.finalworkshop.city.City;
 import pl.atos.finalworkshop.product.Product;
 
@@ -20,6 +21,9 @@ public class Shop {
 
     @ManyToMany
     private List<City> cities;
+
+    @Formula("(select count(*) from products where products.shop_id = id)")
+    private int productQuantity;
 
     public Long getId() {
         return id;
@@ -51,5 +55,13 @@ public class Shop {
 
     public void setCities(List<City> cities) {
         this.cities = cities;
+    }
+
+    public int getProductQuantity() {
+        return productQuantity;
+    }
+
+    public void setProductQuantity(int productQuantity) {
+        this.productQuantity = productQuantity;
     }
 }
