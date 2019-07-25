@@ -15,9 +15,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().
-                antMatchers("/").authenticated().
-                antMatchers("/create-user").permitAll().
-                 and().formLogin();
+                antMatchers("/new-post").authenticated().
+                antMatchers("/").permitAll().
+                antMatchers("create-user").permitAll().
+                and().formLogin();
     }
 
     @Bean

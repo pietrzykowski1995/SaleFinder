@@ -1,8 +1,10 @@
 package pl.atos.finalworkshop.user;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
@@ -13,13 +15,16 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/create-user")
-    @ResponseBody
-    public String createUser() {
+    @GetMapping("create-user")
+    public String log(Model model) {
         User user = new User();
-        user.setUsername("admin");
-        user.setPassword("admin");
+        model.addAttribute("user", user);
+        return "create-user";
+    }
+
+    @PostMapping("create-user")
+    public String logUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
-        return "admin";
+        return "redirect:";
     }
 }
