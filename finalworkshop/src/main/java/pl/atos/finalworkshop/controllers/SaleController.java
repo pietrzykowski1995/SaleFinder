@@ -54,9 +54,9 @@ public class SaleController {
     public String searchByName(@RequestParam("productName") String productName, @RequestParam("cityName") String cityName, Model model) {
         List<Product> products;
 
-        if(cityName.isEmpty() && productName.isEmpty()){
+            if(cityName.isEmpty() && productName.isEmpty()){
 
-        }
+            }
         else if (cityName.isEmpty()) {
             products = productService.findByName(productName);
             model.addAttribute("products", products);
