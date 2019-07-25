@@ -35,7 +35,7 @@
 
 <div class="unit-5 overlay" style="background-image: url('images/hero_1.jpg');">
     <div class="container text-center">
-        <h2 class="mb-0">Rejestracja</h2>
+        <h2 class="mb-0">Logowanie</h2>
         <%--        <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>Dodaj promocje</span></p>--%>
     </div>
 </div>
@@ -48,30 +48,31 @@
             <div class="col-md-12 col-lg-8 mb-5">
 
 
-                <form:form action="login" method="post" modelAttribute="user" class="p-5 bg-white">
+                <form action="login" method="post" class="p-5 bg-white">
 
 
                     <div class="row form-group mb-4">
                         <div class="col-md-12"><h3>Login</h3></div>
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <form:input type="text" path="username" class="form-control"/>
+                            <input type="text" name="username" class="form-control"/>
                         </div>
                     </div>
 
                     <div class="row form-group mb-4">
                         <div class="col-md-12"><h3>Hasło</h3></div>
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <form:input type="text" path="password" class="form-control"/>
+                            <input type="text" name="password" class="form-control"/>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <input type="submit" value="Zarejestruj" class="btn btn-primary  py-2 px-5">
+                            <input type="submit" value="Zaloguj" class="btn btn-primary  py-2 px-5">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         </div>
                     </div>
 
 
-                </form:form>
+                </form>
 
             </div>
         </div>

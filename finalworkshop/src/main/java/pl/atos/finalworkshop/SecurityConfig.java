@@ -18,7 +18,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 antMatchers("/new-post").authenticated().
                 antMatchers("/").permitAll().
                 antMatchers("create-user").permitAll().
-                and().formLogin();
+                and().formLogin().
+                loginPage("/login");
     }
 
     @Bean
