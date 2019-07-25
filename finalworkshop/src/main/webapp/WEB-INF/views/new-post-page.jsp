@@ -49,57 +49,59 @@
 
 
                 <form:form action="new-post" method="post" modelAttribute="product" class="p-5 bg-white">
-                    <div class="row form-group mb-4">
-                        <div class="col-md-12"><h3>Nazwa produktu</h3></div>
-                        <div class="col-md-12 mb-3 mb-md-0">
-                            <form:input type="text" path="name" class="form-control" placeholder="np. kawa, herbata"/>
-                            <form:errors path="name" />
-                        </div>
+                <div class="row form-group mb-4">
+                    <div class="col-md-12"><h3>Nazwa produktu</h3></div>
+                    <div class="col-md-12 mb-3 mb-md-0">
+                        <form:input type="text" path="name" class="form-control" placeholder="np. kawa, herbata"/>
+                        <form:errors path="name"/>
                     </div>
+                </div>
 
 
-                    <div class="row form-group mb-4">
-                        <div class="col-md-12"><h3>Kategoria</h3></div>
-                        <div class="col-md-12 mb-3 mb-md-0">
-                            <form:select type="text" itemValue="id" itemLabel="name" items="${categories}" path="category.id" class="form-control" />
-                        </div>
+                <div class="row form-group mb-4">
+                    <div class="col-md-12"><h3>Kategoria</h3></div>
+                    <div class="col-md-12 mb-3 mb-md-0">
+                        <form:select type="text" itemValue="id" itemLabel="name" items="${categories}"
+                                     path="category.id" class="form-control"/>
                     </div>
+                </div>
 
-                    <div class="row form-group mb-4">
-                        <div class="col-md-12"><h3>Cena</h3></div>
-                        <div class="col-md-12 mb-3 mb-md-0">
-                            <form:input type="text" path="price" class="form-control" placeholder="np. 2,99"/>
-                        </div>
+                <div class="row form-group mb-4">
+                    <div class="col-md-12"><h3>Cena</h3></div>
+                    <div class="col-md-12 mb-3 mb-md-0">
+                        <form:input type="text" path="price" class="form-control" placeholder="np. 2,99"/>
                     </div>
+                </div>
 
-                    <div class="row form-group mb-4">
-                        <div class="col-md-12"><h3>Cena przed promocją</h3></div>
-                        <div class="col-md-12 mb-3 mb-md-0">
-                            <form:input type="text" path="priceBeforeSale"  class="form-control" placeholder="np. 2,99"/>
-                        </div>
+                <div class="row form-group mb-4">
+                    <div class="col-md-12"><h3>Cena przed promocją</h3></div>
+                    <div class="col-md-12 mb-3 mb-md-0">
+                        <form:input type="text" path="priceBeforeSale" class="form-control" placeholder="np. 2,99"/>
                     </div>
+                </div>
 
 
-                    <div class="row form-group">
-                        <div class="col-md-12"><h3>Sklep</h3></div>
-                        <div class="col-md-12 mb-3 mb-md-0">
-                            <form:select type="text" itemValue="id" itemLabel="name" items="${shops}" path="shop.id" class="form-control" placeholder="np. Biedronka"/>
-                        </div>
+                <div class="row form-group">
+                    <div class="col-md-12"><h3>Sklep</h3></div>
+                    <div class="col-md-12 mb-3 mb-md-0">
+                        <form:select type="text" itemValue="id" itemLabel="name" items="${shops}" path="shop.id"
+                                     class="form-control" placeholder="np. Biedronka"/>
                     </div>
+                </div>
 
-                    <div class="row form-group mb-4">
-                        <div class="col-md-12"><h3>Promocja wygasa</h3></div>
-                        <div class="col-md-12 mb-3 mb-md-0">
-                            <form:input type="date" path="expire"/>
-                            <form:errors path="expire" />
-                        </div>
+                <div class="row form-group mb-4">
+                    <div class="col-md-12"><h3>Promocja wygasa</h3></div>
+                    <div class="col-md-12 mb-3 mb-md-0">
+                        <form:input type="date" path="expire"/>
+                        <form:errors path="expire"/>
                     </div>
+                </div>
 
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            <input type="submit" value="Dodaj promocję" class="btn btn-primary  py-2 px-5">
-                        </div>
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <input type="submit" value="Dodaj promocję" class="btn btn-primary  py-2 px-5">
                     </div>
+                </div>
             </div>
             </form:form>
 

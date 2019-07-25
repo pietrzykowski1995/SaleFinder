@@ -3,6 +3,7 @@ package pl.atos.finalworkshop.converters;
 import org.springframework.core.convert.converter.Converter;
 import pl.atos.finalworkshop.validators.FutureDate;
 
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 

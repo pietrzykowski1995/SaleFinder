@@ -70,25 +70,17 @@
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         </div>
                     </div>
-
-
-
-
                 </form>
-
             </div>
 
-            <div class="p-4 mb-3 bg-white">
-                <h3 class="h5 text-black mb-3">Contact Info</h3>
-                <p class="mb-0 font-weight-bold">Address</p>
-                <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
+            <div class="col-lg-4">
+                <div class="p-4 mb-3 bg-white">
+                    <h3 class="h5 text-black mb-3">Nie masz konta?</h3>
+                    <div class="col-md-12">
+                       <a href="create-user" class="btn btn-primary  py-2 px-5">Zarejestruj się!</a>
+                    </div>
 
-                <p class="mb-0 font-weight-bold">Phone</p>
-                <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
-
-                <p class="mb-0 font-weight-bold">Email Address</p>
-                <p class="mb-0"><a href="#">youremail@domain.com</a></p>
-
+                </div>
             </div>
         </div>
     </div>
