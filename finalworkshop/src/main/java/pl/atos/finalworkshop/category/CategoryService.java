@@ -23,6 +23,16 @@ public class CategoryService implements CategoryServiceInterface {
         return allCategories;
 }
 
+    @Override
+    public Category save(Category category) {
+        categoryRepository.save(category);
+        return category;
+    }
+
+    @Override
+    public Category findFirstByName(String name) {
+        return categoryRepository.findFirstByName(name);
+    }
 
 
 }

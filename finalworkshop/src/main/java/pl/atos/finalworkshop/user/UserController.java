@@ -35,10 +35,4 @@ public class UserController {
         return "login";
     }
 
-    @GetMapping("users")
-    public String users(Model model) {
-        List<User> users = userService.findAllByOrderByProductsDesc();
-        model.addAttribute("users", users);
-        return "users-list";
-    }
 }

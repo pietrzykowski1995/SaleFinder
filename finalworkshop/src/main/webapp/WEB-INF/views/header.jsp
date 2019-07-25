@@ -31,7 +31,7 @@
                                     <ul class="site-menu js-clone-nav d-none d-lg-block">
                                         <li><a href="mega-sales">MEGA Promocje</a></li>
                                         <li class="has-children">
-                                            <a href="category.html">Statystyki</a>
+                                            <a href="category.html">Menu</a>
                                             <ul class="dropdown arrow-top">
                                                 <li><a href="/categories">Kategorie</a></li>
                                                 <li><a href="/users">Użytkownicy</a></li>

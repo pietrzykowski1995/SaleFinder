@@ -8,5 +8,4 @@ public interface UserServiceInteface {
 
     void saveUser(User user);
 
-    List<User> findAllByOrderByProductsDesc();
 }

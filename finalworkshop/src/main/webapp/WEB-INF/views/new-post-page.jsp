@@ -49,22 +49,6 @@
 
 
                 <form:form action="new-post" method="post" modelAttribute="product" class="p-5 bg-white">
-
-                    <%--
-                                  <div class="row form-group">
-                                    <div class="col-md-12 mb-3 mb-md-0">
-                                      <label for="option-price-1">
-                                        <input type="checkbox" id="option-price-1"> <span class="text-success">$300</span> For 30 days
-                                      </label>
-                                    </div>
-                                    <div class="col-md-12 mb-3 mb-md-0">
-                                      <label for="option-price-2">
-                                        <input type="checkbox" id="option-price-2"> <span class="text-success">$200</span> / Monthly Recurring
-                                      </label>
-                                    </div>
-                                  </div>
-                    --%>
-
                     <div class="row form-group mb-4">
                         <div class="col-md-12"><h3>Nazwa produktu</h3></div>
                         <div class="col-md-12 mb-3 mb-md-0">
@@ -95,21 +79,6 @@
                         </div>
                     </div>
 
-
-<%--                    <div class="row form-group">
-                        <div class="col-md-12"><h3>Rodzaj promocji</h3></div>
-                        <div class="col-md-12 mb-3 mb-md-0">
-                            <label for="option-job-type-1">
-                                <input type="radio" id="option-job-type-1" name="job-type"> Lokalna
-                            </label>
-                        </div>
-                        <div class="col-md-12 mb-3 mb-md-0">
-                            <label for="option-job-type-2">
-                                <input type="radio" id="option-job-type-2" name="job-type"> Ogólnopolska
-                            </label>
-                        </div>
-
-                    </div>--%>
 
                     <div class="row form-group">
                         <div class="col-md-12"><h3>Sklep</h3></div>

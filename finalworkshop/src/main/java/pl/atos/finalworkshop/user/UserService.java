@@ -34,8 +34,5 @@ public class UserService implements UserServiceInteface {
         userRepository.save(user);
     }
 
-    @Override
-    public List<User> findAllByOrderByProductsDesc() {
-        return userRepository.findAll();
-    }
+
 }

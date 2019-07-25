@@ -61,7 +61,7 @@
                     <div class="row form-group mb-4">
                         <div class="col-md-12"><h3>Hasło</h3></div>
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <input type="text" name="password" class="form-control"/>
+                            <input type="password" name="password" class="form-control"/>
                         </div>
                     </div>
                     <div class="row form-group">
@@ -72,7 +72,22 @@
                     </div>
 
 
+
+
                 </form>
+
+            </div>
+
+            <div class="p-4 mb-3 bg-white">
+                <h3 class="h5 text-black mb-3">Contact Info</h3>
+                <p class="mb-0 font-weight-bold">Address</p>
+                <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
+
+                <p class="mb-0 font-weight-bold">Phone</p>
+                <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
+
+                <p class="mb-0 font-weight-bold">Email Address</p>
+                <p class="mb-0"><a href="#">youremail@domain.com</a></p>
 
             </div>
         </div>
