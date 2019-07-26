@@ -25,11 +25,10 @@ public class CityService implements CityServiceInterface {
 
     @Override
     public void save(String cityName) {
-        City city = new City();
-        city.setName(cityName);
-        cityRepository.save(city);
-
+        if (cityRepository.findFirstByName(cityName) == null) {
+            City city = new City();
+            city.setName(cityName);
+            cityRepository.save(city);
+        }
     }
-
-
 }

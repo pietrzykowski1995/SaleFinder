@@ -64,6 +64,6 @@ public class ShopController {
         Shop shop = shopService.findFirstById(id);
         cityService.save(cityName);
         shopService.addCity(cityName,shop);
-        return "shops";
+        return "redirect:/shops";
     }
 }

@@ -69,14 +69,14 @@
                 <div class="row form-group mb-4">
                     <div class="col-md-12"><h3>Cena</h3></div>
                     <div class="col-md-12 mb-3 mb-md-0">
-                        <form:input type="text" path="price" class="form-control" placeholder="np. 2,99"/>
+                        <form:input type="number" step="0.01" path="price" class="form-control" placeholder="np. 2,99"/>
                     </div>
                 </div>
 
                 <div class="row form-group mb-4">
                     <div class="col-md-12"><h3>Cena przed promocją</h3></div>
                     <div class="col-md-12 mb-3 mb-md-0">
-                        <form:input type="text" path="priceBeforeSale" class="form-control" placeholder="np. 2,99"/>
+                        <form:input type="number" step="0.01" path="priceBeforeSale" class="form-control" placeholder="np. 2,99"/>
                     </div>
                 </div>
 
