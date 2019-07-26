@@ -16,7 +16,9 @@ public class UniqueShopNameValidator implements ConstraintValidator<UniqueShopNa
     @Override
     public boolean isValid(String givenShopName, ConstraintValidatorContext context) {
 
-
+        if (shopService == null) {
+            return true;
+        }
 
         if (shopService.findFirstByName(givenShopName) != null) {
             return false;

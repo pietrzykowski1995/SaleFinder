@@ -16,6 +16,15 @@ public class UniqueCategoryNameValidator implements ConstraintValidator<UniqueCa
 
     @Override
     public boolean isValid(String givenCategoryName, ConstraintValidatorContext context) {
-        return categoryService.findFirstByName(givenCategoryName) == null;
+
+        if(categoryService==null) {
+            return true;
+        }
+
+        if (categoryService.findFirstByName(givenCategoryName) != null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

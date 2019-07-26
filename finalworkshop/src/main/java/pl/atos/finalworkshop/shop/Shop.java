@@ -18,7 +18,7 @@ public class Shop {
     @OneToMany(mappedBy = "shop")
     private List<Product> products;
 
-    //@UniqueShopName
+    @UniqueShopName
     private String name;
 
     @ManyToMany
