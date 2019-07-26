@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ShopRepository extends JpaRepository<Shop, Long> {
 
+   Shop findFirstByName(String givenShopName);
+
+
+   Shop findFirstById(Long id);
 }

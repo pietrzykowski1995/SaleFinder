@@ -1,7 +1,9 @@
 package pl.atos.finalworkshop.category;
 
 import org.hibernate.annotations.Formula;
+import org.hibernate.validator.constraints.UniqueElements;
 import pl.atos.finalworkshop.product.Product;
+import pl.atos.finalworkshop.validators.UniqueCateogryName;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @UniqueCateogryName
     private String name;
 
     @OneToMany(mappedBy = "category")

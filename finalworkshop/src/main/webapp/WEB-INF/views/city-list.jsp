@@ -35,7 +35,7 @@
 
 <div class="unit-5 overlay" style="background-image: url('images/hero_1.jpg');">
     <div class="container text-center">
-        <h2 class="mb-0">Logowanie</h2>
+        <h2 class="mb-0">Edycja</h2>
         <%--        <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>Dodaj promocje</span></p>--%>
     </div>
 </div>
@@ -48,39 +48,33 @@
             <div class="col-md-12 col-lg-8 mb-5">
 
 
-                <form action="login" method="post" class="p-5 bg-white">
+                <form action="/add-city/${id}" method="post" class="p-5 bg-white">
 
 
                     <div class="row form-group mb-4">
-                        <div class="col-md-12"><h3>Login</h3></div>
+                        <div class="col-md-12"><h3>Dodaj miasto</h3></div>
                         <div class="col-md-12 mb-3 mb-md-0">
-                            <input type="text" name="username" class="form-control"/>
+                            <input type="text" name="cityName" class="form-control"/>
                         </div>
                     </div>
 
-                    <div class="row form-group mb-4">
-                        <div class="col-md-12"><h3>Hasło</h3></div>
-                        <div class="col-md-12 mb-3 mb-md-0">
-                            <input type="password" name="password" class="form-control"/>
-                        </div>
-                    </div>
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <input type="submit" value="Zaloguj" class="btn btn-primary  py-2 px-5">
-                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            <input type="submit" value="Dodaj" class="btn btn-primary  py-2 px-5">
                         </div>
                     </div>
                 </form>
-            </div>
 
-            <div class="col-lg-4">
-                <div class="p-4 mb-3 bg-white">
-                    <h3 class="h5 text-black mb-3">Nie masz konta?</h3>
-                    <div class="col-md-12">
-                       <a href="create-user" class="btn btn-primary  py-2 px-5">Zarejestruj się!</a>
+                <c:forEach items="${cities}" var="city">
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="100">
+                        <a href="/category/${city.name}" class="h-100 feature-item">
+                            <span class="d-block icon flaticon mb-3 text-primary"></span>
+                            <h2>${city.name}</h2>
+                            <span class="counting">${city.id}</span>
+                        </a>
                     </div>
+                </c:forEach>
 
-                </div>
             </div>
         </div>
     </div>
