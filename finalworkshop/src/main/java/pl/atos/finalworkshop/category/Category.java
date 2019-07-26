@@ -17,7 +17,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @UniqueCateogryName
+    //@UniqueCateogryName
     private String name;
 
     @OneToMany(mappedBy = "category")

@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 
 @Controller
-public class CategoriesController {
+public class CategoryController {
 
     CategoryService categoryService;
 
     @Autowired
-    public CategoriesController(CategoryService categoryService) {
+    public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
 

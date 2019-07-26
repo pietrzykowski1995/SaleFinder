@@ -3,6 +3,7 @@ package pl.atos.finalworkshop.shop;
 import org.hibernate.annotations.Formula;
 import pl.atos.finalworkshop.city.City;
 import pl.atos.finalworkshop.product.Product;
+import pl.atos.finalworkshop.validators.UniqueShopName;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,6 +18,7 @@ public class Shop {
     @OneToMany(mappedBy = "shop")
     private List<Product> products;
 
+    //@UniqueShopName
     private String name;
 
     @ManyToMany

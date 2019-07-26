@@ -18,8 +18,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
         @Query(nativeQuery = true, value = "select * from products " +
                 " inner join shop on products.shop_id=shop.id" +
-                " inner join shop_city on shop.id=shop_city.shopList_id" +
-                " inner join city on city.id=shop_city.cities_id" +
+                " inner join shop_cities on shop.id=shop_cities.shop_list_id" +
+                " inner join city on city.id=shop_cities.cities_id" +
                 " where city.name = :cityName and products.name = :productName")
         List<Product> findByCityAndName(@Param("cityName") String cityName, @Param("productName") String productName);
 

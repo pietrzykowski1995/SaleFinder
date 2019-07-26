@@ -147,8 +147,10 @@
 <div class="site-section bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
-                <h2 class="mb-5 h3">Ostatnie promocje</h2>
+            <div class="col-md-12 mb-5 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6 mx-auto text-center mb-5 section-heading">
+                    <h2 class="mb-5">Ostatnie promocje</h2>
+                </div>
                 <div class="rounded border jobs-wrap">
 
                     <c:forEach items="${top10Products}" var="product">
@@ -176,12 +178,9 @@
                     </c:forEach>
                 </div>
 
-                <div class="col-md-12 text-center mt-5">
-                    <a href="#" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Pokaż
-                        więcej promocji</a>
-                </div>
+
             </div>
-            <div class="col-md-4 block-16" data-aos="fade-up" data-aos-delay="200">
+           <%-- <div class="col-md-4 block-16" data-aos="fade-up" data-aos-delay="200">
                 <div class="d-flex mb-0">
                     <h2 class="mb-5 h3 mb-0">Nadchodzące promocje</h2>
                     <div class="ml-auto mt-1"><a href="#" class="owl-custom-prev">Prev</a> / <a href="#"
@@ -242,7 +241,7 @@
 
                 </div>
 
-            </div>
+            </div>--%>
         </div>
     </div>
 </div>
