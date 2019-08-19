@@ -1,5 +1,6 @@
 package pl.atos.finalworkshop.user;
 
+import org.hibernate.validator.constraints.UniqueElements;
 import pl.atos.finalworkshop.product.Product;
 
 import javax.persistence.*;

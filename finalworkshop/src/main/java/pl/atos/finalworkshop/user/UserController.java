@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -25,7 +26,7 @@ public class UserController {
     }
 
     @PostMapping("create-user")
-    public String logUser(@ModelAttribute("user") User user) {
+    public String logUser(@ModelAttribute("user") @Valid User user) {
         userService.saveUser(user);
         return "redirect:";
     }
