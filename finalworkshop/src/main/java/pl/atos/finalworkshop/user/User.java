@@ -3,6 +3,7 @@ package pl.atos.finalworkshop.user;
 import pl.atos.finalworkshop.product.Product;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.util.List;
 import java.util.Set;
 
@@ -15,6 +16,8 @@ public class User {
     @Column(nullable = false, unique = true)
     private String username;
     private String password;
+    @Email
+    private String email;
     private int enabled;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
@@ -69,5 +72,13 @@ public class User {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

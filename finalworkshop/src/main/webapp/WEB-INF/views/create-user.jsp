@@ -64,6 +64,14 @@
                             <form:input type="password" path="password" class="form-control"/>
                         </div>
                     </div>
+
+                    <div class="row form-group mb-4">
+                        <div class="col-md-12"><h3>Email</h3></div>
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <form:input type="email" path="email" class="form-control"/>
+                        </div>
+                    </div>
+
                     <div class="row form-group">
                         <div class="col-md-12">
                             <input type="submit" value="Zarejestruj" class="btn btn-primary  py-2 px-5">
