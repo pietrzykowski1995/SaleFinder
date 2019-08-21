@@ -42,11 +42,11 @@ public class SaleController {
     public String saveSale(@ModelAttribute("product") @Valid Product product,
                            BindingResult errors) {
 
-        if(errors.hasErrors()) {
+        if (errors.hasErrors()) {
             return "new-post-page";
         }
 
-            productService.saveSale(product);
+        productService.saveSale(product);
         return "redirect:";
     }
 
@@ -54,10 +54,11 @@ public class SaleController {
     public String searchByName(@RequestParam("productName") String productName, @RequestParam("cityName") String cityName, Model model) {
         List<Product> products;
 
-            if(cityName.isEmpty() && productName.isEmpty()){
+//        correct condition
 
-            }
-        else if (cityName.isEmpty()) {
+        if (cityName.isEmpty() && productName.isEmpty()) {
+
+        } else if (cityName.isEmpty()) {
             products = productService.findByName(productName);
             model.addAttribute("products", products);
         } else {
