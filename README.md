@@ -1,3 +1,3 @@
 # SaleFinder
 
-Page where people can find some sales
+Page where people can find and add some sales
