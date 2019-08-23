@@ -1,6 +1,7 @@
 package pl.atos.finalworkshop.user;
 
 import org.hibernate.validator.constraints.UniqueElements;
+import pl.atos.finalworkshop.category.Category;
 import pl.atos.finalworkshop.product.Product;
 
 import javax.persistence.*;
@@ -26,6 +27,9 @@ public class User {
     private Set<Role> roles;
     @OneToMany (mappedBy = "user")
     private List<Product> products;
+
+    @ManyToMany
+    private List<Category> categories;
 
     public Long getId() {
         return id;
@@ -81,5 +85,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 }

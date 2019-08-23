@@ -1,8 +1,10 @@
 package pl.atos.finalworkshop.category;
 
 import org.hibernate.annotations.Formula;
+import org.hibernate.annotations.ManyToAny;
 import org.hibernate.validator.constraints.UniqueElements;
 import pl.atos.finalworkshop.product.Product;
+import pl.atos.finalworkshop.user.User;
 import pl.atos.finalworkshop.validators.UniqueCateogryName;
 
 import javax.persistence.*;
@@ -22,6 +24,9 @@ public class Category {
 
     @OneToMany(mappedBy = "category")
     private List<Product> products = new ArrayList<>();
+
+    @ManyToMany
+    private List<User> users = new ArrayList<>();
 
 
     @Formula("(select count(*) from products where products.category_id = id)")
@@ -57,5 +62,13 @@ public class Category {
 
     public void setProductQuantity(int productQuantity) {
         this.productQuantity = productQuantity;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }

@@ -5,11 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class EmailController {
+public class EmailService {
 
     private final EmailSender emailSender;
     @Autowired
-    public EmailController(EmailSender emailSender){
+    public EmailService(EmailSender emailSender){
         this.emailSender = emailSender;
     }
     @RequestMapping("mail")
