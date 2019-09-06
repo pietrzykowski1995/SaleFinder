@@ -1,8 +1,6 @@
 package pl.atos.finalworkshop.category;
 
 import org.hibernate.annotations.Formula;
-import org.hibernate.annotations.ManyToAny;
-import org.hibernate.validator.constraints.UniqueElements;
 import pl.atos.finalworkshop.product.Product;
 import pl.atos.finalworkshop.user.User;
 import pl.atos.finalworkshop.validators.UniqueCateogryName;
@@ -25,7 +23,14 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private List<Product> products = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST}
+    )
+    @JoinTable(
+            name = "categories_users",
+            joinColumns = @JoinColumn(name = "categoroy_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
     private List<User> users = new ArrayList<>();
 
 

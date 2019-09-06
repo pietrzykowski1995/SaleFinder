@@ -30,7 +30,7 @@ public class User {
     @OneToMany (mappedBy = "user")
     private List<Product> products;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "users")
     private List<Category> categories;
 
 
