@@ -53,7 +53,10 @@
                         <span class="d-block icon flaticon-calculator mb-3 text-primary"></span>
                         <h2>${category.name}</h2>
                         <span class="counting">${category.productQuantity}</span>
+                        <button class="btn">1</button>
                     </a>
+
+
                 </div>
             </c:forEach>
             <div class="col-md-12 text-center mt-5" data-aos="fade-up" data-aos-delay="100">

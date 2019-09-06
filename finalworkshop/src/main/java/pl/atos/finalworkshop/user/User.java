@@ -1,11 +1,13 @@
 package pl.atos.finalworkshop.user;
 
 import org.hibernate.validator.constraints.UniqueElements;
+import org.springframework.security.core.GrantedAuthority;
 import pl.atos.finalworkshop.category.Category;
 import pl.atos.finalworkshop.product.Product;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -30,6 +32,7 @@ public class User {
 
     @ManyToMany
     private List<Category> categories;
+
 
     public Long getId() {
         return id;
