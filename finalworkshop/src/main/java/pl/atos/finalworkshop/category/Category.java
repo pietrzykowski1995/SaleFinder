@@ -1,6 +1,7 @@
 package pl.atos.finalworkshop.category;
 
 import org.hibernate.annotations.Formula;
+import org.springframework.transaction.annotation.Transactional;
 import pl.atos.finalworkshop.product.Product;
 import pl.atos.finalworkshop.user.User;
 import pl.atos.finalworkshop.validators.UniqueCateogryName;
@@ -75,5 +76,9 @@ public class Category {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    public void addUser(User user) {
+        this.users.add(user);
     }
 }
