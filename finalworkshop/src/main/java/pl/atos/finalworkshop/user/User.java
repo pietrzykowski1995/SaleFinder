@@ -1,13 +1,15 @@
 package pl.atos.finalworkshop.user;
 
 import org.hibernate.validator.constraints.UniqueElements;
-import org.springframework.security.core.GrantedAuthority;
 import pl.atos.finalworkshop.category.Category;
 import pl.atos.finalworkshop.product.Product;
+import pl.atos.finalworkshop.validators.UniqueEmail;
+import pl.atos.finalworkshop.validators.UniqueUserName;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import java.util.Collection;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Set;
 
@@ -17,22 +19,37 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, unique = true)
+
+
+    @UniqueUserName
+    @NotNull
+    @NotEmpty
     private String username;
+
     private String password;
+
+    @UniqueEmail
     @Email
+    @NotNull
+    @NotEmpty
     private String email;
+
     private int enabled;
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
+
     @OneToMany (mappedBy = "user")
     private List<Product> products;
 
     @ManyToMany(mappedBy = "users")
     private List<Category> categories;
 
+    public User() {
+        this.enabled = 0;
+    }
 
     public Long getId() {
         return id;
