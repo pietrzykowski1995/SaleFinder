@@ -25,7 +25,8 @@ public class Category {
     private List<Product> products = new ArrayList<>();
 
     @ManyToMany(
-            cascade = {CascadeType.MERGE, CascadeType.PERSIST}
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST},
+            fetch = FetchType.EAGER
     )
     @JoinTable(
             name = "categories_users",
