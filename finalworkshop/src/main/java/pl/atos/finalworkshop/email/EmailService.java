@@ -8,13 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.atos.finalworkshop.category.Category;
 import pl.atos.finalworkshop.category.CategoryService;
 import pl.atos.finalworkshop.user.User;
+import pl.atos.finalworkshop.user.VerificationToken;
 
+import javax.persistence.OneToOne;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @Configuration
-public class EmailService {
+public class EmailService implements EmailServiceInterface {
 
     private final EmailSender emailSender;
     private CategoryService categoryService;
@@ -26,6 +29,7 @@ public class EmailService {
     }
 
     @Async
+    @Override
     public void sendToCategoryObserver(Long id) {
         Optional<Category> category = categoryService.findById(id);
         if (category.isPresent()) {
@@ -35,5 +39,17 @@ public class EmailService {
                         category.get().getName(), "Witaj, pojawił się nowy przedmiot w kategorii, którą obserwujesz");
             }
         }
+    }
+
+    @Async
+    @Override
+    public void sendVerifyUserMail(User user, String url) {
+
+        String token= UUID.randomUUID().toString();
+        VerificationToken verificationToken=new VerificationToken(token, user);
+
+        emailSender.sendEmail(user.getEmail(), "Potwierdź rejestrację w portalu",
+                "WItaj, potwierdź rejestrację na portalu SaleFinder klikając na poniższy link: /n" +
+                url + "?token=" + token);
     }
 }
