@@ -7,4 +7,8 @@ public interface UserServiceInteface {
     void saveUser(User user);
 
     User findByEmail(String email);
+
+    void createVerificationToken(String token, User user);
+
+    VerificationToken getVerificationToken(String token);
 }

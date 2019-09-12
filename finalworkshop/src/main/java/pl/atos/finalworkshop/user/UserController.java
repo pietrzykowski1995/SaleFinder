@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 import pl.atos.finalworkshop.email.EmailService;
 
@@ -34,14 +35,35 @@ public class UserController {
     @PostMapping("create-user")
     public String logUser(@ModelAttribute("user") @Valid User user, BindingResult result, WebRequest request) {
 
-        if(result.hasErrors()) {
+        if (result.hasErrors()) {
             return "create-user";
         }
         userService.saveUser(user);
-        emailService.sendVerifyUserMail(user, request.getContextPath());
+        String appUrl = request.getContextPath();
+        emailService.sendVerifyUserMail(user, appUrl);
 
 
         return "redirect:";
+    }
+
+    @GetMapping("create-user/confirm")
+    public String confirmCreateUser(@RequestParam("token") String token) {
+
+        VerificationToken verificationToken = userService.getVerificationToken(token);
+
+        if (verificationToken == null) {
+            //condition when token has expired or its wrong
+        }
+
+        User user = verificationToken.getUser();
+
+        // check if link has not expired
+
+        user.setEnabled(1);
+        userService.saveUser(user);
+        return "login";
+
+
     }
 
 

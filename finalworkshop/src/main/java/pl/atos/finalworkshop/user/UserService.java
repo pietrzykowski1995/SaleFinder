@@ -5,17 +5,18 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 
 @Service
 public class UserService implements UserServiceInteface {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final VerificationTokenRepository verificationTokenRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
     public UserService(UserRepository userRepository, RoleRepository roleRepository,
-                       BCryptPasswordEncoder passwordEncoder) {
+                       VerificationTokenRepository verificationTokenRepository, BCryptPasswordEncoder passwordEncoder) {
+        this.verificationTokenRepository = verificationTokenRepository;
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
@@ -37,6 +38,17 @@ public class UserService implements UserServiceInteface {
     @Override
     public User findByEmail(String email) {
         return userRepository.findFirstByEmail(email);
+    }
+
+    @Override
+    public void createVerificationToken(String token, User user) {
+        VerificationToken verificationToken= new VerificationToken(token, user);
+        verificationTokenRepository.save(verificationToken);
+    }
+
+    @Override
+    public VerificationToken getVerificationToken(String token) {
+        return verificationTokenRepository.findByToken(token);
     }
 
 }

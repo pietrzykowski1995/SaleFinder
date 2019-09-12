@@ -4,13 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 import pl.atos.finalworkshop.category.Category;
 import pl.atos.finalworkshop.category.CategoryService;
 import pl.atos.finalworkshop.user.User;
-import pl.atos.finalworkshop.user.VerificationToken;
+import pl.atos.finalworkshop.user.UserService;
 
-import javax.persistence.OneToOne;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -21,11 +19,13 @@ public class EmailService implements EmailServiceInterface {
 
     private final EmailSender emailSender;
     private CategoryService categoryService;
+    private UserService userService;
 
     @Autowired
-    public EmailService(EmailSender emailSender, CategoryService categoryService) {
+    public EmailService(EmailSender emailSender, CategoryService categoryService, UserService userService) {
         this.emailSender = emailSender;
         this.categoryService = categoryService;
+        this.userService = userService;
     }
 
     @Async
@@ -45,11 +45,10 @@ public class EmailService implements EmailServiceInterface {
     @Override
     public void sendVerifyUserMail(User user, String url) {
 
-        String token= UUID.randomUUID().toString();
-        VerificationToken verificationToken=new VerificationToken(token, user);
-
+        String token = UUID.randomUUID().toString();
+        userService.createVerificationToken(token, user);
         emailSender.sendEmail(user.getEmail(), "Potwierdź rejestrację w portalu",
-                "WItaj, potwierdź rejestrację na portalu SaleFinder klikając na poniższy link: /n" +
-                url + "?token=" + token);
+                "WItaj, potwierdź rejestrację na portalu SaleFinder klikając na poniższy link: "  +
+                        url + "/confirm?token=" + token);
     }
 }
