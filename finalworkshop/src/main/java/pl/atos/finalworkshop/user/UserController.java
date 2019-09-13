@@ -59,11 +59,9 @@ public class UserController {
 
         // check if link has not expired
 
-        user.setEnabled(1);
+        user.setEnabled();
         userService.saveUser(user);
         return "login";
-
-
     }
 
 

@@ -34,7 +34,7 @@ public class User {
     @NotEmpty
     private String email;
 
-    private int enabled;
+    private boolean enabled;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
@@ -48,7 +48,7 @@ public class User {
     private List<Category> categories;
 
     public User() {
-        this.enabled = 0;
+        this.enabled = false;
     }
 
     public Long getId() {
@@ -75,12 +75,12 @@ public class User {
         this.password = password;
     }
 
-    public int getEnabled() {
+    public boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(int enabled) {
-        this.enabled = enabled;
+    public void setEnabled() {
+        this.enabled = true;
     }
 
     public Set<Role> getRoles() {
