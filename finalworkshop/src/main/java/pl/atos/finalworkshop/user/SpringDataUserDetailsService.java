@@ -22,7 +22,6 @@ public class SpringDataUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) {
 
-        boolean enabled = true;
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
         boolean accountNonLocked = true;

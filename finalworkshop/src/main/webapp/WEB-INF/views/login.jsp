@@ -56,6 +56,9 @@
                         <div class="col-md-12 mb-3 mb-md-0">
                             <input type="text" name="username" class="form-control"/>
                         </div>
+                        <div th:if="${param.error != null}"
+                             th:text="${session[SPRING_SECURITY_LAST_EXCEPTION]}">error
+                        </div>
                     </div>
 
                     <div class="row form-group mb-4">
@@ -77,7 +80,7 @@
                 <div class="p-4 mb-3 bg-white">
                     <h3 class="h5 text-black mb-3">Nie masz konta?</h3>
                     <div class="col-md-12">
-                       <a href="create-user" class="btn btn-primary  py-2 px-5">Zarejestruj się!</a>
+                        <a href="create-user" class="btn btn-primary  py-2 px-5">Zarejestruj się!</a>
                     </div>
 
                 </div>
