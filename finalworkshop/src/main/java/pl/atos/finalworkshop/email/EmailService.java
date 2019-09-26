@@ -48,7 +48,7 @@ public class EmailService implements EmailServiceInterface {
         String token = UUID.randomUUID().toString();
         userService.createVerificationToken(token, user);
         emailSender.sendEmail(user.getEmail(), "Potwierdź rejestrację w portalu",
-                "WItaj, potwierdź rejestrację na portalu SaleFinder klikając na poniższy link: "  +
+                "WItaj, potwierdź rejestrację na portalu SaleFinder klikając na poniższy link: " +
                         url + "/confirm?token=" + token);
     }
 }

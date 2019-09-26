@@ -23,7 +23,6 @@ public class ShopController {
         this.cityService = cityService;
     }
 
-
     @GetMapping("shops")
     public String goToShopList(Model model) {
         model.addAttribute("shops", shopService.findAll());
@@ -39,7 +38,6 @@ public class ShopController {
     @PostMapping("create-shop")
     public String createShop(@ModelAttribute("shop") @Valid Shop shop,
                              BindingResult errors) {
-
         if (errors.hasErrors()) {
             return "create-shop";
         } else {
@@ -53,17 +51,14 @@ public class ShopController {
         List<City> cities = cityService.finById(id);
         model.addAttribute("cities", cities);
         model.addAttribute("id", id);
-
-
         return "city-list";
     }
 
     @PostMapping("add-city/{id}")
     public String addShop(@RequestParam("cityName") String cityName, @PathVariable("id") Long id) {
-
         Shop shop = shopService.findFirstById(id);
         cityService.save(cityName);
-        shopService.addCity(cityName,shop);
+        shopService.addCity(cityName, shop);
         return "redirect:/shops";
     }
 }

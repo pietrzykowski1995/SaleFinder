@@ -1,7 +1,5 @@
 package pl.atos.finalworkshop.shop;
 
-import pl.atos.finalworkshop.city.City;
-
 import java.util.List;
 
 public interface ShopServiceInterface {

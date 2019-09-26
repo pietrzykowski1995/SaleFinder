@@ -15,5 +15,8 @@ public class CurrentUser extends User {
         super(username, password, authorities);
         this.user = user;
     }
-    public pl.atos.finalworkshop.user.User getUser() {return user;}
+
+    public pl.atos.finalworkshop.user.User getUser() {
+        return user;
+    }
 }

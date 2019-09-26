@@ -27,7 +27,6 @@ public class HomeController {
     @RequestMapping("")
     public String goHomePage(Model model) {
         model.addAttribute("product", new Product());
-
         return "index";
     }
 

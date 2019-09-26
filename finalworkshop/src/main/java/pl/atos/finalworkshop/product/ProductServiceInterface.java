@@ -15,6 +15,5 @@ public interface ProductServiceInterface {
 
     List<Product> findByCityAndName(String cityName, String productName);
 
-
     List<Product> findByShopId(Long id);
 }

@@ -24,7 +24,6 @@ public class UserController {
         this.emailService = emailService;
     }
 
-
     @GetMapping("create-user")
     public String log(Model model) {
         User user = new User();
@@ -34,15 +33,12 @@ public class UserController {
 
     @PostMapping("create-user")
     public String logUser(@ModelAttribute("user") @Valid User user, BindingResult result, WebRequest request) {
-
         if (result.hasErrors()) {
             return "create-user";
         }
         userService.saveUser(user);
         String appUrl = request.getContextPath();
         emailService.sendVerifyUserMail(user, appUrl);
-
-
         return "redirect:";
     }
 

@@ -46,11 +46,8 @@ public class CategoryService implements CategoryServiceInterface {
         Optional<Category> category = categoryRepository.findById(id);
 
         if (category.isPresent()) {
-
             category.get().addUser(user);
             categoryRepository.save(category.get());
         }
     }
-
-
 }

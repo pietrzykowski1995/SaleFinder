@@ -37,14 +37,12 @@ public class SaleController {
     public String goToNewSaleView(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
-
         return "new-post-page";
     }
 
     @PostMapping("new-post")
     public String saveSale(@ModelAttribute("product") @Valid Product product,
                            BindingResult errors) {
-
         if (errors.hasErrors()) {
             return "new-post-page";
         }
@@ -88,7 +86,6 @@ public class SaleController {
 
     @GetMapping("mega-sales")
     public String goToMegaSales(Model model) {
-
         return "mega-sales";
     }
 

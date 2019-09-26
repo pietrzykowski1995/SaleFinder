@@ -28,13 +28,13 @@ public class Category {
             cascade = {CascadeType.MERGE, CascadeType.PERSIST},
             fetch = FetchType.EAGER
     )
+
     @JoinTable(
             name = "categories_users",
             joinColumns = @JoinColumn(name = "categoroy_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
     private List<User> users = new ArrayList<>();
-
 
     @Formula("(select count(*) from products where products.category_id = id)")
     private int productQuantity;

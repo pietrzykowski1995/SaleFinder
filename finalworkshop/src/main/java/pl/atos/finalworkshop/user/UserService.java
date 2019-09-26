@@ -42,7 +42,7 @@ public class UserService implements UserServiceInteface {
 
     @Override
     public void createVerificationToken(String token, User user) {
-        VerificationToken verificationToken= new VerificationToken(token, user);
+        VerificationToken verificationToken = new VerificationToken(token, user);
         verificationTokenRepository.save(verificationToken);
     }
 
