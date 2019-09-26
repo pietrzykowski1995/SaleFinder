@@ -12,6 +12,8 @@ import pl.atos.finalworkshop.email.EmailService;
 
 import javax.validation.Valid;
 
+//add login errors to view like wrong password, user not enabled etc.
+
 @Controller
 public class UserController {
 
