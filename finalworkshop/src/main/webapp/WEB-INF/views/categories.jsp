@@ -54,11 +54,16 @@
                         <h2>${category.name}</h2>
                         <span class="counting">${category.productQuantity}</span>
                     </a>
+                    <a href="/add-category-observer/${category.id}" class="h-100 feature-item">
+                    <button class="btn btn-primary btn-sm">Obserwuj</button>
+                    </a>
+
                 </div>
             </c:forEach>
             <div class="col-md-12 text-center mt-5" data-aos="fade-up" data-aos-delay="100">
                 <h3 class="h5 text-black mb-3">Brakuje kategorii?</h3>
-                <a href="create-category" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span> Dodaj ją!</a>
+                <a href="create-category" class="btn btn-primary rounded py-3 px-5"><span
+                        class="icon-plus-circle"></span> Dodaj ją!</a>
             </div>
         </div>
 

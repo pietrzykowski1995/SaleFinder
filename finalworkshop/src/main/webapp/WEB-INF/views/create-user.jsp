@@ -55,6 +55,7 @@
                         <div class="col-md-12"><h3>Login</h3></div>
                         <div class="col-md-12 mb-3 mb-md-0">
                             <form:input type="text" path="username" class="form-control"/>
+                            <form:errors path="username"/>
                         </div>
                     </div>
 
@@ -69,6 +70,7 @@
                         <div class="col-md-12"><h3>Email</h3></div>
                         <div class="col-md-12 mb-3 mb-md-0">
                             <form:input type="email" path="email" class="form-control"/>
+                            <form:errors path="email"/>
                         </div>
                     </div>
 

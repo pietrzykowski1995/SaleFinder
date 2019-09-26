@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.atos.finalworkshop.category.Category;
 import pl.atos.finalworkshop.category.CategoryService;
+import pl.atos.finalworkshop.email.EmailService;
 import pl.atos.finalworkshop.product.Product;
 import pl.atos.finalworkshop.product.ProductService;
 import pl.atos.finalworkshop.shop.Shop;
@@ -22,12 +23,14 @@ public class SaleController {
     ProductService productService;
     CategoryService categoryService;
     ShopService shopService;
+    EmailService emailService;
 
     @Autowired
-    public SaleController(ProductService productService, CategoryService categoryService, ShopService shopService) {
+    public SaleController(ProductService productService, CategoryService categoryService, ShopService shopService, EmailService emailService) {
         this.productService = productService;
         this.categoryService = categoryService;
         this.shopService = shopService;
+        this.emailService = emailService;
     }
 
     @GetMapping("new-post")
@@ -42,11 +45,12 @@ public class SaleController {
     public String saveSale(@ModelAttribute("product") @Valid Product product,
                            BindingResult errors) {
 
-        if(errors.hasErrors()) {
+        if (errors.hasErrors()) {
             return "new-post-page";
         }
 
-            productService.saveSale(product);
+        productService.saveSale(product);
+        emailService.sendToCategoryObserver(product.getCategory().getId());
         return "redirect:";
     }
 
@@ -54,10 +58,11 @@ public class SaleController {
     public String searchByName(@RequestParam("productName") String productName, @RequestParam("cityName") String cityName, Model model) {
         List<Product> products;
 
-            if(cityName.isEmpty() && productName.isEmpty()){
+//        correct condition
 
-            }
-        else if (cityName.isEmpty()) {
+        if (cityName.isEmpty() && productName.isEmpty()) {
+
+        } else if (cityName.isEmpty()) {
             products = productService.findByName(productName);
             model.addAttribute("products", products);
         } else {

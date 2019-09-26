@@ -1,8 +1,9 @@
 package pl.atos.finalworkshop.category;
 
 import org.hibernate.annotations.Formula;
-import org.hibernate.validator.constraints.UniqueElements;
+import org.springframework.transaction.annotation.Transactional;
 import pl.atos.finalworkshop.product.Product;
+import pl.atos.finalworkshop.user.User;
 import pl.atos.finalworkshop.validators.UniqueCateogryName;
 
 import javax.persistence.*;
@@ -22,6 +23,17 @@ public class Category {
 
     @OneToMany(mappedBy = "category")
     private List<Product> products = new ArrayList<>();
+
+    @ManyToMany(
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST},
+            fetch = FetchType.EAGER
+    )
+    @JoinTable(
+            name = "categories_users",
+            joinColumns = @JoinColumn(name = "categoroy_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<User> users = new ArrayList<>();
 
 
     @Formula("(select count(*) from products where products.category_id = id)")
@@ -57,5 +69,17 @@ public class Category {
 
     public void setProductQuantity(int productQuantity) {
         this.productQuantity = productQuantity;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public void addUser(User user) {
+        this.users.add(user);
     }
 }
